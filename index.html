@@ -368,20 +368,38 @@
             <h2 class="section-title">Let's Connect</h2>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" action="https://hook.us2.make.com/li9iehmu89acar9sjdoa8ghmkip1w8bi" method="POST" onsubmit="return validateForm(event)">
+                        <!-- Honeypot field to catch bots -->
+                        <div class="honeypot-field" style="display: none;">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="name" id="name" placeholder="Your Name" required minlength="2" maxlength="50">
+                            <span class="error-message" id="nameError"></span>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" id="email" placeholder="Your Email" required>
+                            <span class="error-message" id="emailError"></span>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number">
+                            <input type="tel" name="phone" id="phone" placeholder="Phone Number" required pattern="[0-9\-\+\(\)\s]{10,20}">
+                            <span class="error-message" id="phoneError"></span>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Tell us about your project or goals..." rows="5" required></textarea>
+                            <textarea name="message" id="message" placeholder="Tell us about your project or goals..." rows="5" required minlength="10" maxlength="1000"></textarea>
+                            <span class="error-message" id="messageError"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                        
+                        <!-- Hidden timestamp field -->
+                        <input type="hidden" name="timestamp" id="timestamp">
+                        
+                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
                     </form>
                     <img src="ChatGPTImageJul24202508_24_12PM.png" alt="Mushroom" class="contact-mushroom">
                 </div>

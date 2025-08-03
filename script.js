@@ -487,6 +487,205 @@ function requestTick() {
 
 window.addEventListener('scroll', requestTick);
 
+// Form validation and security
+let lastSubmissionTime = 0;
+const SUBMISSION_COOLDOWN = 5000; // 5 seconds between submissions
+
+function validateForm(event) {
+    event.preventDefault();
+    
+    // Check for honeypot field (bot detection)
+    const honeypotField = document.querySelector('input[name="website"]');
+    if (honeypotField && honeypotField.value.trim() !== '') {
+        console.log('Bot detected via honeypot field');
+        return false;
+    }
+    
+    // Rate limiting
+    const currentTime = Date.now();
+    if (currentTime - lastSubmissionTime < SUBMISSION_COOLDOWN) {
+        showNotification('Please wait a few seconds before submitting again.', 'error');
+        return false;
+    }
+    
+    // Get form elements
+    const form = document.getElementById('contactForm');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const message = document.getElementById('message');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+    
+    // Clear previous errors
+    clearErrors();
+    
+    let isValid = true;
+    
+    // Validate name
+    if (!name.value.trim()) {
+        showError('name', 'Name is required');
+        isValid = false;
+    } else if (name.value.trim().length < 2) {
+        showError('name', 'Name must be at least 2 characters');
+        isValid = false;
+    } else if (name.value.trim().length > 50) {
+        showError('name', 'Name must be less than 50 characters');
+        isValid = false;
+    }
+    
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim()) {
+        showError('email', 'Email is required');
+        isValid = false;
+    } else if (!emailRegex.test(email.value.trim())) {
+        showError('email', 'Please enter a valid email address');
+        isValid = false;
+    }
+    
+    // Validate phone
+    const phoneRegex = /^[\d\-\+\(\)\s]{10,20}$/;
+    if (!phone.value.trim()) {
+        showError('phone', 'Phone number is required');
+        isValid = false;
+    } else if (!phoneRegex.test(phone.value.trim())) {
+        showError('phone', 'Please enter a valid phone number');
+        isValid = false;
+    }
+    
+    // Validate message
+    if (!message.value.trim()) {
+        showError('message', 'Message is required');
+        isValid = false;
+    } else if (message.value.trim().length < 10) {
+        showError('message', 'Message must be at least 10 characters');
+        isValid = false;
+    } else if (message.value.trim().length > 1000) {
+        showError('message', 'Message must be less than 1000 characters');
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        showNotification('Please fix the errors above.', 'error');
+        return false;
+    }
+    
+    // Add timestamp
+    document.getElementById('timestamp').value = currentTime;
+    
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline-block';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission (replace with actual submission)
+    setTimeout(() => {
+        // Reset form
+        form.reset();
+        
+        // Reset button state
+        btnText.style.display = 'inline-block';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
+        
+        // Update last submission time
+        lastSubmissionTime = currentTime;
+        
+        // Show success message
+        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+        
+        // Clear any remaining errors
+        clearErrors();
+        
+        // Submit the form to the webhook
+        form.submit();
+        
+    }, 2000);
+    
+    return false;
+}
+
+function showError(fieldId, message) {
+    const errorElement = document.getElementById(fieldId + 'Error');
+    const fieldElement = document.getElementById(fieldId);
+    
+    if (errorElement && fieldElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+        fieldElement.style.borderColor = '#EF4444';
+        fieldElement.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+    }
+}
+
+function clearErrors() {
+    const errorElements = document.querySelectorAll('.error-message');
+    const formFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    
+    errorElements.forEach(element => {
+        element.textContent = '';
+        element.style.display = 'none';
+    });
+    
+    formFields.forEach(field => {
+        field.style.borderColor = '';
+        field.style.boxShadow = '';
+    });
+}
+
+// Real-time validation
+document.addEventListener('DOMContentLoaded', function() {
+    const formFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    
+    formFields.forEach(field => {
+        field.addEventListener('blur', function() {
+            validateField(this);
+        });
+        
+        field.addEventListener('input', function() {
+            // Clear error when user starts typing
+            const errorElement = document.getElementById(this.id + 'Error');
+            if (errorElement && errorElement.style.display === 'block') {
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            }
+        });
+    });
+});
+
+function validateField(field) {
+    const value = field.value.trim();
+    const fieldId = field.id;
+    
+    switch (fieldId) {
+        case 'name':
+            if (value && value.length < 2) {
+                showError('name', 'Name must be at least 2 characters');
+            }
+            break;
+        case 'email':
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (value && !emailRegex.test(value)) {
+                showError('email', 'Please enter a valid email address');
+            }
+            break;
+        case 'phone':
+            const phoneRegex = /^[\d\-\+\(\)\s]{10,20}$/;
+            if (value && !phoneRegex.test(value)) {
+                showError('phone', 'Please enter a valid phone number');
+            }
+            break;
+        case 'message':
+            if (value && value.length < 10) {
+                showError('message', 'Message must be at least 10 characters');
+            }
+            break;
+    }
+}
+
 // Accessibility improvements
 document.addEventListener('keydown', function(e) {
     // Close modal with Escape key
