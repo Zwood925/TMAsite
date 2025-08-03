@@ -163,30 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Form handling
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const message = this.querySelector('textarea').value;
-
-            // Simple validation
-            if (!name || !email || !message) {
-                showNotification('Please fill in all required fields.', 'error');
-                return;
-            }
-
-            // Simulate form submission
-            showNotification('Message sent! We\'ll get back to you soon.', 'success');
-            this.reset();
-        });
-    }
+    // Form handling is now done by the validateForm function with webhook integration
 
     // Button click handlers
     document.querySelectorAll('.btn').forEach(button => {
@@ -580,29 +557,46 @@ function validateForm(event) {
     btnLoading.style.display = 'inline-block';
     submitBtn.disabled = true;
     
-    // Simulate form submission (replace with actual submission)
-    setTimeout(() => {
-        // Reset form
-        form.reset();
+    // Submit form data to webhook using fetch (prevents page redirect)
+    const formData = new FormData(form);
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            // Reset form
+            form.reset();
+            
+            // Reset button state
+            btnText.style.display = 'inline-block';
+            btnLoading.style.display = 'none';
+            submitBtn.disabled = false;
+            
+            // Update last submission time
+            lastSubmissionTime = currentTime;
+            
+            // Show success message
+            showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+            
+            // Clear any remaining errors
+            clearErrors();
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    })
+    .catch(error => {
+        console.error('Error submitting form:', error);
         
         // Reset button state
         btnText.style.display = 'inline-block';
         btnLoading.style.display = 'none';
         submitBtn.disabled = false;
         
-        // Update last submission time
-        lastSubmissionTime = currentTime;
-        
-        // Show success message
-        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-        
-        // Clear any remaining errors
-        clearErrors();
-        
-        // Submit the form to the webhook
-        form.submit();
-        
-    }, 2000);
+        // Show error message
+        showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+    });
     
     return false;
 }
