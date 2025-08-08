@@ -7,5 +7,25 @@
   to = "/index.html"
   status = 200
 
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Content-Type = "text/css"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[headers]]
+  for = "*.mp4"
+  [headers.values]
+    Content-Type = "video/mp4"
+
 [build.environment]
   NODE_VERSION = "18" 
