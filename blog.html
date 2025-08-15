@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - The Mushroom Agency | AI Insights & Automation Tips</title>
-    <link rel="icon" type="image/png" href="ChatGPTImageJul24202508_27_40PM.png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="blog-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — The Mushroom Agency</title>
+  <meta name="description" content="Practical AI and automation insights for small businesses. Learn how to leverage AI tools to grow your business efficiently." />
+  <link rel="icon" type="image/png" href="ChatGPTImageJul24202508_27_40PM.png">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="blog-styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
     <!-- Navigation -->
@@ -23,7 +23,7 @@
                 <li><a href="index.html#ai-for-everyone">AI for Everyone</a></li>
                 <li><a href="index.html#journey">Start Your Journey</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a class="active" href="blog.html">Blog</a></li>
                 <li><a href="index.html#contact" class="cta-button">Let's Talk</a></li>
             </ul>
             <div class="hamburger">
@@ -34,274 +34,265 @@
         </div>
     </nav>
 
+  <main>
     <!-- Blog Header -->
     <section class="blog-header">
-        <div class="container">
-            <div class="blog-header-content">
-                <h1 class="blog-title">The Mushroom Agency Blog</h1>
-                <p class="blog-subtitle">Growing ideas, spreading knowledge, and connecting communities through AI and automation</p>
-                <div class="blog-search">
-                    <input type="text" placeholder="Search articles..." id="searchInput">
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="blog-categories">
-                <button class="category-btn active" data-category="all">All Posts</button>
-                <button class="category-btn" data-category="ai">AI & Automation</button>
-                <button class="category-btn" data-category="business">Small Business</button>
-                <button class="category-btn" data-category="tutorials">Tutorials</button>
-                <button class="category-btn" data-category="case-studies">Case Studies</button>
-            </div>
+      <div class="blog-header-content">
+        <h1 class="blog-title">The Mushroom Agency Blog</h1>
+        <p class="blog-subtitle">Practical AI and automation insights for small businesses</p>
+        
+        <div class="blog-search">
+          <input type="text" placeholder="Search articles..." id="search-input" />
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
+        
+        <div class="blog-categories">
+          <button class="category-btn active" data-category="all">All</button>
+          <button class="category-btn" data-category="ai">AI</button>
+          <button class="category-btn" data-category="automation">Automation</button>
+          <button class="category-btn" data-category="business">Business</button>
+          <button class="category-btn" data-category="news">News</button>
+          <button class="category-btn" data-category="tutorials">Tutorials</button>
+        </div>
+      </div>
     </section>
 
     <!-- Featured Post -->
-    <section class="featured-post">
-        <div class="container">
-            <div class="featured-content">
-                <div class="featured-image">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI Automation">
-                    <div class="featured-badge">Featured</div>
-                </div>
-                <div class="featured-text">
-                    <div class="post-meta">
-                        <span class="category">AI & Automation</span>
-                        <span class="date">July 24, 2024</span>
-                        <span class="read-time">8 min read</span>
-                    </div>
-                    <h2>How Small Town Businesses Are Winning with AI Automation</h2>
-                    <p>Discover the real stories of local businesses that transformed their operations using affordable AI solutions. From bakeries to auto shops, learn how automation is leveling the playing field for small businesses.</p>
-                    <div class="featured-actions">
-                        <a href="#" class="btn btn-primary">Read Full Article</a>
-                        <div class="share-buttons">
-                            <button class="share-btn" title="Share on Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </button>
-                            <button class="share-btn" title="Share on LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </button>
-                            <button class="share-btn" title="Copy Link">
-                                <i class="fas fa-link"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="featured-post" id="featured-post">
+      <!-- Featured post will be loaded here -->
     </section>
 
     <!-- Blog Posts Grid -->
     <section class="blog-posts">
-        <div class="container">
-            <div class="posts-grid" id="postsGrid">
-                <!-- Post 1 -->
-                <article class="post-card" data-category="ai business">
-                    <div class="post-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Customer Service AI">
-                        <div class="post-category">AI & Automation</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="date">July 22, 2024</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <h3>5 Ways AI Chatbots Are Revolutionizing Customer Service</h3>
-                        <p>Learn how intelligent chatbots are providing 24/7 customer support, reducing response times, and increasing customer satisfaction for businesses of all sizes.</p>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <div class="post-stats">
-                                <span><i class="fas fa-eye"></i> 1.2k</span>
-                                <span><i class="fas fa-heart"></i> 89</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 2 -->
-                <article class="post-card" data-category="tutorials">
-                    <div class="post-image">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automation Setup">
-                        <div class="post-category">Tutorials</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="date">July 20, 2024</span>
-                            <span class="read-time">12 min read</span>
-                        </div>
-                        <h3>Step-by-Step Guide: Setting Up Your First Business Automation</h3>
-                        <p>A beginner-friendly tutorial that walks you through creating your first automation workflow, from identifying opportunities to implementation and testing.</p>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <div class="post-stats">
-                                <span><i class="fas fa-eye"></i> 856</span>
-                                <span><i class="fas fa-heart"></i> 67</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 3 -->
-                <article class="post-card" data-category="case-studies">
-                    <div class="post-image">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Local Bakery">
-                        <div class="post-category">Case Studies</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="date">July 18, 2024</span>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                        <h3>Case Study: How Sarah's Bakery Increased Orders by 300%</h3>
-                        <p>Discover how a small-town bakery used AI-powered social media tools and automated order management to triple their business in just 6 months.</p>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <div class="post-stats">
-                                <span><i class="fas fa-eye"></i> 2.1k</span>
-                                <span><i class="fas fa-heart"></i> 156</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 4 -->
-                <article class="post-card" data-category="business">
-                    <div class="post-image">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Small Business Growth">
-                        <div class="post-category">Small Business</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="date">July 16, 2024</span>
-                            <span class="read-time">7 min read</span>
-                        </div>
-                        <h3>The Hidden Costs of Manual Processes (And How to Fix Them)</h3>
-                        <p>Manual processes are silently eating your profits. Learn to identify these hidden costs and discover affordable automation solutions that pay for themselves.</p>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <div class="post-stats">
-                                <span><i class="fas fa-eye"></i> 943</span>
-                                <span><i class="fas fa-heart"></i> 78</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 5 -->
-                <article class="post-card" data-category="ai">
-                    <div class="post-image">
-                        <img src="https://images.unsplash.com/photo-1676299251950-6d1c3c3c3c3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Tools">
-                        <div class="post-category">AI & Automation</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="date">July 14, 2024</span>
-                            <span class="read-time">9 min read</span>
-                        </div>
-                        <h3>Top 10 AI Tools Every Small Business Should Know About</h3>
-                        <p>From content creation to customer service, discover the most powerful and affordable AI tools that can transform your business operations today.</p>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <div class="post-stats">
-                                <span><i class="fas fa-eye"></i> 1.8k</span>
-                                <span><i class="fas fa-heart"></i> 134</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 6 -->
-                <article class="post-card" data-category="tutorials business">
-                    <div class="post-image">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Social Media Automation">
-                        <div class="post-category">Tutorials</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="date">July 12, 2024</span>
-                            <span class="read-time">10 min read</span>
-                        </div>
-                        <h3>Automate Your Social Media: A Complete Guide for Small Businesses</h3>
-                        <p>Stop spending hours on social media! Learn how to automate your content creation, scheduling, and engagement while maintaining your authentic voice.</p>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            <div class="post-stats">
-                                <span><i class="fas fa-eye"></i> 1.5k</span>
-                                <span><i class="fas fa-heart"></i> 112</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Load More Button -->
-            <div class="load-more-container">
-                <button class="btn btn-outline" id="loadMoreBtn">
-                    <i class="fas fa-plus"></i>
-                    Load More Articles
-                </button>
-            </div>
-        </div>
+      <div class="posts-grid" id="posts-grid">
+        <!-- Posts will be loaded here -->
+      </div>
+      
+      <div class="load-more-container">
+        <button class="load-more-btn" id="load-more-btn" style="display: none;">Load More Posts</button>
+      </div>
     </section>
 
     <!-- Newsletter Signup -->
     <section class="newsletter-signup">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <h2>Stay Connected with The Mushroom Agency</h2>
-                    <p>Get the latest AI insights, automation tips, and small business success stories delivered to your inbox every week.</p>
-                    <ul class="newsletter-benefits">
-                        <li><i class="fas fa-check"></i> Weekly automation tips</li>
-                        <li><i class="fas fa-check"></i> Case studies from real businesses</li>
-                        <li><i class="fas fa-check"></i> Exclusive tutorials and guides</li>
-                        <li><i class="fas fa-check"></i> Early access to new tools</li>
-                    </ul>
-                </div>
-                <div class="newsletter-form">
-                    <form id="newsletterForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Subscribe to Newsletter
-                        </button>
-                    </form>
-                    <p class="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
-                </div>
-            </div>
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h2>Get Automation Tips Weekly</h2>
+          <p>Join 500+ small business owners getting practical automation strategies every week.</p>
+          <ul class="newsletter-benefits">
+            <li><i class="fas fa-check"></i> Weekly automation tips</li>
+            <li><i class="fas fa-check"></i> Tool recommendations</li>
+            <li><i class="fas fa-check"></i> Case studies & examples</li>
+          </ul>
         </div>
+        <div class="newsletter-form">
+          <div class="form-group">
+            <input type="email" placeholder="Enter your email" />
+            <button class="btn">Subscribe</button>
+          </div>
+          <p class="newsletter-note">No spam, unsubscribe anytime. We respect your privacy.</p>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-mushroom"></i>
-                    <span>The Mushroom Agency</span>
-                </div>
-                <p class="footer-quote">"No one should be left behind in the tech revolution."</p>
-                <div class="footer-links">
-                    <a href="index.html#what-we-do">Services</a>
-                    <a href="index.html#about">About</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="index.html#contact">Contact</a>
-                    <a href="#">Privacy Policy</a>
-                </div>
+  <script>
+    let allPosts = [];
+    let filteredPosts = [];
+    let displayedPosts = 6;
+    let currentCategory = 'all';
+    let searchTerm = '';
+
+    // Load posts from JSON file
+    async function loadPosts() {
+      try {
+        const response = await fetch('posts.json');
+        const data = await response.json();
+        allPosts = data.posts || [];
+        
+        // Filter to only published posts
+        allPosts = allPosts.filter(post => post.published);
+        
+        // Sort by date (newest first)
+        allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        displayPosts();
+      } catch (error) {
+        console.error('Error loading posts:', error);
+        document.getElementById('posts-grid').innerHTML = '<p>Error loading posts. Please try again later.</p>';
+      }
+    }
+
+    function displayPosts() {
+      // Filter posts based on category and search
+      filteredPosts = allPosts.filter(post => {
+        const matchesCategory = currentCategory === 'all' || post.category === currentCategory;
+        const matchesSearch = !searchTerm || 
+          post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          post.subtitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          post.description.toLowerCase().includes(searchTerm.toLowerCase());
+        
+        return matchesCategory && matchesSearch;
+      });
+
+      // Display featured post (first post)
+      if (filteredPosts.length > 0) {
+        displayFeaturedPost(filteredPosts[0]);
+      }
+
+      // Display posts grid
+      const postsToShow = filteredPosts.slice(1, displayedPosts + 1);
+      displayPostsGrid(postsToShow);
+
+      // Show/hide load more button
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      if (filteredPosts.length > displayedPosts + 1) {
+        loadMoreBtn.style.display = 'block';
+      } else {
+        loadMoreBtn.style.display = 'none';
+      }
+    }
+
+    function displayFeaturedPost(post) {
+      const featuredSection = document.getElementById('featured-post');
+      featuredSection.innerHTML = `
+        <div class="featured-content">
+          <div class="featured-image">
+            <img src="${post.coverImage || 'ChatGPTImageJul24202508_27_40PM.png'}" alt="${post.title}" />
+            <div class="featured-badge">Featured</div>
+          </div>
+          <div class="featured-text">
+            <div class="post-meta">
+              <span class="category">${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
+              <span class="date">${post.date}</span>
+              <span class="read-time">${post.readTime}</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Mushroom Agency. All rights reserved.</p>
+            <h2>${post.title}</h2>
+            <p>${post.description}</p>
+            <div class="featured-actions">
+              <a class="read-more" href="post.html?id=${post.id}">Read Full Article</a>
+              <div class="share-buttons">
+                <button class="share-btn" onclick="sharePost('${post.title}', '${window.location.origin}/post.html?id=${post.id}')">
+                  <i class="fab fa-twitter"></i>
+                </button>
+                <button class="share-btn" onclick="sharePost('${post.title}', '${window.location.origin}/post.html?id=${post.id}', 'linkedin')">
+                  <i class="fab fa-linkedin"></i>
+                </button>
+                <button class="share-btn" onclick="copyLink('${window.location.origin}/post.html?id=${post.id}')">
+                  <i class="fas fa-link"></i>
+                </button>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
+      `;
+    }
 
-    <script src="script.js"></script>
-    <script src="blog-script.js"></script>
+    function displayPostsGrid(posts) {
+      const postsGrid = document.getElementById('posts-grid');
+      
+      if (posts.length === 0) {
+        postsGrid.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; padding: 2rem;">No posts found matching your criteria.</p>';
+        return;
+      }
+
+      postsGrid.innerHTML = posts.map(post => `
+        <article class="post-card" data-category="${post.category}">
+          <div class="post-image">
+            <img src="${post.coverImage || 'ChatGPTImageJul24202508_27_40PM.png'}" alt="${post.title}" />
+            <div class="post-category">${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</div>
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="date">${post.date}</span>
+              <span class="read-time">${post.readTime}</span>
+            </div>
+            <h3>${post.title}</h3>
+            <p>${post.description}</p>
+            <div class="post-footer">
+              <a class="read-more" href="post.html?id=${post.id}">Read More</a>
+              <div class="post-stats">
+                <span><i class="fas fa-eye"></i> 0</span>
+                <span><i class="fas fa-heart"></i> 0</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterByCategory(category) {
+      currentCategory = category;
+      displayedPosts = 6;
+      displayPosts();
+      
+      // Update active button
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+
+    function searchPosts() {
+      searchTerm = document.getElementById('search-input').value;
+      displayedPosts = 6;
+      displayPosts();
+    }
+
+    function loadMorePosts() {
+      displayedPosts += 6;
+      displayPosts();
+    }
+
+    function sharePost(title, url, platform = 'twitter') {
+      let shareUrl;
+      if (platform === 'twitter') {
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+      } else if (platform === 'linkedin') {
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      }
+      
+      if (shareUrl) {
+        window.open(shareUrl, '_blank');
+      }
+    }
+
+    function copyLink(url) {
+      navigator.clipboard.writeText(url).then(() => {
+        // Show a temporary success message
+        const btn = event.target.closest('.share-btn');
+        const originalIcon = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(() => {
+          btn.innerHTML = originalIcon;
+        }, 2000);
+      });
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPosts();
+
+      // Category filter
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterByCategory(this.dataset.category);
+        });
+      });
+
+      // Search
+      const searchInput = document.getElementById('search-input');
+      let searchTimeout;
+      searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(searchPosts, 300);
+      });
+
+      // Load more
+      document.getElementById('load-more-btn').addEventListener('click', loadMorePosts);
+    });
+  </script>
 </body>
-</html> 
+</html>

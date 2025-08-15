@@ -1,6 +1,139 @@
 /* Blog Page Specific Styles */
 /* Clean, readable design that maintains brand identity */
 
+/* Add padding for fixed navbar */
+body {
+    padding-top: 80px;
+}
+
+/* Site Header styles removed - now using navbar from main styles */
+
+/* Blog Post Styles */
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.7;
+}
+
+.post-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.post-hero img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+}
+
+/* Special styling for the printing press image */
+.post-hero img[src*="printing-press.jpeg"] {
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.post-hero h1 {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.post-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.post-content h2 {
+    font-size: 1.8rem;
+    color: var(--primary-purple);
+    margin: 2rem 0 1rem 0;
+    border-bottom: 2px solid var(--accent-green);
+    padding-bottom: 0.5rem;
+}
+
+.post-content h3 {
+    font-size: 1.4rem;
+    color: var(--black);
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+}
+
+.post-content ul,
+.post-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content strong {
+    color: var(--primary-purple);
+    font-weight: 600;
+}
+
+.post-content em {
+    color: var(--accent-green);
+    font-style: italic;
+}
+
+.post-cta {
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.post-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-cta p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.post-cta .cta-button {
+    background: var(--white) !important;
+    color: var(--primary-purple) !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.post-cta .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 /* Blog Header */
 .blog-header {
     background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
@@ -16,8 +149,25 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mushroom-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23mushroom-pattern)"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mushroom-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23mushroom-pattern)"/></svg>');
+    opacity: 0.4;
+}
+
+.blog-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
 }
 
 .blog-header-content {
@@ -118,6 +268,34 @@
 .featured-post {
     padding: 4rem 0;
     background: var(--gray-100);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-post::before {
+    content: '🍄';
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.featured-post::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--accent-green), var(--accent-blue));
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.1); opacity: 0.2; }
 }
 
 .featured-content {
@@ -151,9 +329,17 @@
 
 .featured-image img {
     width: 100%;
-    height: 300px;
+    height: 350px;
     object-fit: cover;
     transition: transform 0.3s ease;
+    border-radius: 15px;
+}
+
+/* Special styling for the printing press image in featured section */
+.featured-image img[src*="printing-press.jpeg"] {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .featured-content:hover .featured-image img {
@@ -241,6 +427,27 @@
 .blog-posts {
     padding: 4rem 0;
     background: var(--white);
+    position: relative;
+}
+
+.blog-posts::before {
+    content: '🍄';
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-size: 1.5rem;
+    opacity: 0.1;
+    animation: float 4s ease-in-out infinite;
+}
+
+.blog-posts::after {
+    content: '🍄';
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    opacity: 0.1;
+    animation: float 4s ease-in-out infinite reverse;
 }
 
 .posts-grid {
@@ -319,18 +526,23 @@
 }
 
 .read-more {
-    color: var(--primary-purple);
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    display: flex;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .read-more:hover {
-    color: var(--accent-green);
-    transform: translateX(5px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    color: var(--white);
 }
 
 .post-stats {
@@ -348,6 +560,40 @@
 
 .load-more-container {
     text-align: center;
+    margin-top: 2rem;
+}
+
+.load-more-btn {
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-green));
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.load-more-btn::before {
+    content: '🍄';
+    position: absolute;
+    left: 1rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    padding-left: 3rem;
+}
+
+.load-more-btn:hover::before {
+    opacity: 1;
 }
 
 /* Newsletter Signup */
@@ -355,6 +601,28 @@
     background: linear-gradient(135deg, var(--primary-purple), var(--accent-blue));
     padding: 4rem 0;
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-signup::before {
+    content: '🍄';
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.newsletter-signup::after {
+    content: '🍄';
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    opacity: 0.2;
+    animation: pulse 3s ease-in-out infinite 1.5s;
 }
 
 .newsletter-content {

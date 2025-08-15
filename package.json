@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "npx serve . -p 3000",
     "start": "npx serve . -p 3000",
-    "build": "echo 'Build completed - static site ready for deployment'",
-    "preview": "npx serve . -p 3000"
+    "build": "npm run build:blog && echo 'Build completed - static site ready for deployment'",
+    "preview": "npx serve . -p 3000",
+    "build:blog": "node scripts/build-blog.mjs",
+    "new-post": "node scripts/create-post.js",
+    "convert-post": "node scripts/md-to-blog.js"
   },
   "keywords": [
     "ai",
@@ -17,6 +20,9 @@
   ],
   "author": "Zach - The Mushroom Agency",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
-} 
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^12.0.2"
+  },
+  "type": "module"
+}
