@@ -41,4 +41,7 @@ coverage/
 
 # Temporary folders
 tmp/
-temp/ 
+temp/ blog_admin/venv/
+blog_admin/src/database/
+*.pyc
+__pycache__/
