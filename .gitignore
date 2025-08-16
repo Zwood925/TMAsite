@@ -41,7 +41,30 @@ coverage/
 
 # Temporary folders
 tmp/
-temp/ blog_admin/venv/
-blog_admin/src/database/
+temp/
+
+# Python
 *.pyc
 __pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+blog_admin/venv/
+blog_admin/src/database/
+blog_admin/src/__pycache__/
+blog_admin/src/*/__pycache__/
+blog_admin/src/*/*/__pycache__/
+
+# Flask
+instance/
+.webassets-cache
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
