@@ -9,7 +9,12 @@ from src.models.user import db
 from src.routes.user import user_bp
 from src.routes.blog_admin import blog_admin_bp
 
-app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
+# Configure Flask app to serve static files from the main site directory
+MAIN_SITE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates')
+app = Flask(__name__, 
+           static_folder=MAIN_SITE_DIR,
+           template_folder=TEMPLATE_DIR)
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
 CORS(app)
 
@@ -26,9 +31,10 @@ with app.app_context():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
+    # Serve static files from the main site directory
     static_folder_path = app.static_folder
     if static_folder_path is None:
-            return "Static folder not configured", 404
+        return "Static folder not configured", 404
 
     if path != "" and os.path.exists(os.path.join(static_folder_path, path)):
         return send_from_directory(static_folder_path, path)
@@ -38,7 +44,6 @@ def serve(path):
             return send_from_directory(static_folder_path, 'index.html')
         else:
             return "index.html not found", 404
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

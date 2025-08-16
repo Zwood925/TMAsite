@@ -24,6 +24,7 @@
                 <li><a href="index.html#journey">Start Your Journey</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a class="active" href="blog.html">Blog</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
                 <li><a href="index.html#contact" class="cta-button">Let's Talk</a></li>
             </ul>
             <div class="hamburger">
@@ -39,7 +40,7 @@
     <section class="blog-header">
       <div class="blog-header-content">
         <h1 class="blog-title">The Mushroom Agency Blog</h1>
-        <p class="blog-subtitle">Practical AI and automation insights for small businesses</p>
+        <p class="blog-subtitle">Growing ideas, spreading knowledge, and connecting communities through AI and automation.</p>
         
         <div class="blog-search">
           <input type="text" placeholder="Search articles..." id="search-input" />
@@ -49,12 +50,11 @@
         </div>
         
         <div class="blog-categories">
-          <button class="category-btn active" data-category="all">All</button>
-          <button class="category-btn" data-category="ai">AI</button>
-          <button class="category-btn" data-category="automation">Automation</button>
-          <button class="category-btn" data-category="business">Business</button>
-          <button class="category-btn" data-category="news">News</button>
-          <button class="category-btn" data-category="tutorials">Tutorials</button>
+          <button class="category-btn active" data-category="all">All Posts</button>
+          <button class="category-btn" data-category="ai">AI & Automation</button>
+          <button class="category-btn" data-category="automation">Small Business</button>
+          <button class="category-btn" data-category="business">Tutorials</button>
+          <button class="category-btn" data-category="news">Case Studies</button>
         </div>
       </div>
     </section>
@@ -138,12 +138,16 @@
       });
 
       // Display featured post (first post)
+      let postsToShow = [];
       if (filteredPosts.length > 0) {
         displayFeaturedPost(filteredPosts[0]);
+        // Display posts grid (excluding the featured post)
+        postsToShow = filteredPosts.slice(1, displayedPosts + 1);
+      } else {
+        // Hide featured section if no posts
+        document.getElementById('featured-post').style.display = 'none';
+        postsToShow = [];
       }
-
-      // Display posts grid
-      const postsToShow = filteredPosts.slice(1, displayedPosts + 1);
       displayPostsGrid(postsToShow);
 
       // Show/hide load more button
@@ -172,7 +176,7 @@
             <h2>${post.title}</h2>
             <p>${post.description}</p>
             <div class="featured-actions">
-              <a class="read-more" href="post.html?id=${post.id}">Read Full Article</a>
+                             <a class="read-more" href="post.html?id=${post.id}">Read Full Article</a>
               <div class="share-buttons">
                 <button class="share-btn" onclick="sharePost('${post.title}', '${window.location.origin}/post.html?id=${post.id}')">
                   <i class="fab fa-twitter"></i>
@@ -212,7 +216,7 @@
             <h3>${post.title}</h3>
             <p>${post.description}</p>
             <div class="post-footer">
-              <a class="read-more" href="post.html?id=${post.id}">Read More</a>
+                             <a class="read-more" href="post.html?id=${post.id}">Read More</a>
               <div class="post-stats">
                 <span><i class="fas fa-eye"></i> 0</span>
                 <span><i class="fas fa-heart"></i> 0</span>

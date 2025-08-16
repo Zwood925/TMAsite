@@ -11,7 +11,7 @@ import shutil
 blog_admin_bp = Blueprint('blog_admin', __name__)
 
 # Configuration - paths relative to the main TMAsite directory
-MAIN_SITE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+MAIN_SITE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 POSTS_JSON_PATH = os.path.join(MAIN_SITE_DIR, 'posts.json')
 POSTS_DIR = os.path.join(MAIN_SITE_DIR, 'posts')
 IMAGES_DIR = os.path.join(MAIN_SITE_DIR, 'images', 'blog')
@@ -24,15 +24,20 @@ def allowed_file(filename):
 
 def load_posts_data():
     """Load the posts.json file"""
+    print(f"Looking for posts.json at: {POSTS_JSON_PATH}")
+    print(f"File exists: {os.path.exists(POSTS_JSON_PATH)}")
     if os.path.exists(POSTS_JSON_PATH):
-        with open(POSTS_JSON_PATH, 'r') as f:
-            return json.load(f)
+        with open(POSTS_JSON_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            print(f"Loaded {len(data.get('posts', []))} posts")
+            return data
+    print("Posts.json not found, returning empty data")
     return {"posts": [], "lastUpdated": datetime.now().isoformat()}
 
 def save_posts_data(data):
     """Save the posts.json file"""
     data["lastUpdated"] = datetime.now().isoformat()
-    with open(POSTS_JSON_PATH, 'w') as f:
+    with open(POSTS_JSON_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
 
 def create_slug(title):

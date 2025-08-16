@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMA Consulting - AI Literacy & Competitive Advantage | The Mushroom Agency</title>
+    <meta name="description" content="Transform your team into AI experts. We don't just build tools—we teach you to fish. Become the smartest person in AI in your industry with our consulting services.">
+    <link rel="icon" type="image/png" href="ChatGPTImageJul24202508_27_40PM.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .consulting-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consulting-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('ChatGPTImageJul24202508_27_40PM.png') no-repeat center;
+            background-size: 300px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .consulting-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .consulting-logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .consulting-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .consulting-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .consulting-section {
+            padding: 5rem 0;
+        }
+
+        .consulting-section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a202c;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .process-step h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .process-step p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .case-study {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .case-study h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .case-study .industry {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+
+        .case-study p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .results {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .results h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+        }
+
+        .results ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .results li {
+            padding: 0.25rem 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .results li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .benefit-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .consulting-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-mushroom"></i>
+                <span>The Mushroom Agency</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#what-we-do">What We Do</a></li>
+                <li><a href="index.html#ai-for-everyone">AI for Everyone</a></li>
+                <li><a href="index.html#journey">Start Your Journey</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact" class="cta-button">Let's Talk</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="consulting-hero">
+        <div class="consulting-hero-content">
+            <div class="consulting-logo-placeholder">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h1>Become the Smartest Person in AI in Your Industry</h1>
+            <p>We don't just build tools—we teach you to fish. Transform your team into AI experts and stay ahead of the competition with our consulting services.</p>
+            <a href="https://calendly.com/zwood925/tma-discovery-call" target="_blank" class="btn btn-primary">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="consulting-section">
+        <div class="container">
+            <h2 class="section-title">Our Consulting Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>AI Expert Immersion</h3>
+                    <p>We embed an AI expert in your business for a week, then provide ongoing check-ins to ensure your team becomes self-sufficient.</p>
+                    <ul class="service-features">
+                        <li>Deep dive into your business processes</li>
+                        <li>Identify high-impact automation opportunities</li>
+                        <li>Train key employees as AI champions</li>
+                        <li>Ongoing support and guidance</li>
+                        <li>Custom AI literacy program</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>AI Literacy Workshops</h3>
+                    <p>Comprehensive workshops covering practical AI applications, ethical considerations, and rapid growth strategies.</p>
+                    <ul class="service-features">
+                        <li>Practical AI applications for rapid growth</li>
+                        <li>Religious and ethical AI considerations</li>
+                        <li>Tool selection and implementation</li>
+                        <li>Industry-specific AI strategies</li>
+                        <li>Hands-on practice and case studies</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Competitive Advantage Program</h3>
+                    <p>Transform your organization into the most AI-savvy company in your industry with our comprehensive program.</p>
+                    <ul class="service-features">
+                        <li>Industry trend analysis and forecasting</li>
+                        <li>AI tool evaluation and selection</li>
+                        <li>Process optimization and automation</li>
+                        <li>Team upskilling and certification</li>
+                        <li>Ongoing innovation support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="consulting-section">
+        <div class="container">
+            <h2 class="section-title">How We Transform Your Business</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Assessment & Discovery</h3>
+                    <p>We spend time understanding your business, identifying pain points, and mapping out AI opportunities that will drive the most impact.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Immersion & Training</h3>
+                    <p>Our AI expert works directly with your team, teaching them to identify opportunities and build solutions that solve real problems.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation & Optimization</h3>
+                    <p>We help you implement the most impactful automations and processes, ensuring they work seamlessly with your existing operations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Excellence</h3>
+                    <p>Regular check-ins ensure your team continues to innovate and stay ahead of the competition as AI tools evolve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="consulting-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose TMA Consulting?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Become the Best</h3>
+                    <p>Transform your team into the most AI-literate group in your industry, giving you a sustainable competitive advantage.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learn to Fish</h3>
+                    <p>We don't just solve problems—we teach your team to identify and solve them independently, creating lasting value.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Sustainable Growth</h3>
+                    <p>Build a culture of continuous innovation that adapts to new AI tools and technologies as they emerge.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Future-Proof</h3>
+                    <p>Stay ahead of the AI revolution with ongoing guidance and support as the technology landscape evolves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="consulting-section">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="case-studies">
+                <div class="case-study">
+                    <div class="industry">Manufacturing</div>
+                    <h3>Regional Manufacturing Leader</h3>
+                    <p>A 50-employee manufacturing company wanted to become the most efficient operation in their region. We spent a week embedded in their facility, training their team on AI tools and automation.</p>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <ul>
+                            <li>40% reduction in production time</li>
+                            <li>3 team members became certified AI experts</li>
+                            <li>Automated 70% of administrative tasks</li>
+                            <li>Became the go-to AI resource in their industry</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-study">
+                    <div class="industry">Retail</div>
+                    <h3>Boutique Retail Transformation</h3>
+                    <p>A family-owned boutique was struggling with inventory management and customer service. We implemented AI solutions and trained their staff to continuously improve their processes.</p>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <ul>
+                            <li>95% reduction in stockouts</li>
+                            <li>Automated customer service responses</li>
+                            <li>2 employees became AI champions</li>
+                            <li>Increased sales by 35% through better inventory</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-study">
+                    <div class="industry">Enterprise</div>
+                    <h3>Fortune 500 AI Transformation</h3>
+                    <p>A large enterprise wanted to democratize AI across their organization. We created a comprehensive training program and embedded AI experts in key departments.</p>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <ul>
+                            <li>500+ employees trained in AI literacy</li>
+                            <li>25 AI champions certified across departments</li>
+                            <li>$2M+ in annual cost savings</li>
+                            <li>Industry recognition as AI leader</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Become the Best in Your Industry?</h2>
+            <p>Stop playing catch-up with AI. Let's make you the smartest person in AI in your field.</p>
+            <a href="https://calendly.com/zwood925/tma-discovery-call" target="_blank" class="btn btn-primary">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
