@@ -1,150 +1,145 @@
 # The Mushroom Agency Website
 
-A modern, responsive website for The Mushroom Agency - helping small-town businesses integrate AI and automation tools in an affordable, accessible way.
+AI Made Simple for Small Towns
 
-## 🌟 Features
+## 🍄 About
 
-### Design & Aesthetics
-- **Psychedelic Color Palette**: Rich purples, greens, blues, and oranges
-- **Mushroom Theme**: Animated mushroom elements and mycelium-inspired visuals
-- **Smooth Animations**: Parallax effects, hover glows, and smooth transitions
-- **Responsive Design**: Works perfectly on all devices
-- **Accessibility Focused**: WCAG compliant with proper focus states and keyboard navigation
+This is the official website for The Mushroom Agency, featuring a modern blog system with a secure Flask-based admin panel.
 
-### Interactive Elements
-- **Animated Hero Section**: Growing mushroom with floating spores
-- **Magic Mushroom Button**: Floating interactive element with random AI tips and facts
-- **Hover Effects**: Service cards, timeline items, and visual elements
-- **Smooth Scrolling**: Navigation with smooth scroll to sections
-- **Form Handling**: Contact form with validation and notifications
-
-### Sections
-1. **Hero Section** - Animated background with compelling headline
-2. **What We Do** - Service offerings with animated icons
-3. **AI for Everyone** - Learning and micro-agency opportunities
-4. **Start Your Journey** - Timeline showing the process
-5. **Client Wins** - Testimonials and success stories
-6. **Why The Mushroom Agency** - Brand story with mushroom facts
-7. **About** - Founder introduction and company values
-8. **Contact** - Contact form and call-to-action
-9. **Footer** - Links and company quote
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- No additional dependencies required
+- Python 3.8+
+- Node.js 14+
+- npm
 
 ### Installation
-1. Clone or download the project files
-2. Open `index.html` in your web browser
-3. The website will load with all animations and functionality
 
-### File Structure
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd TMAsite
+   ```
+
+2. **Install Python dependencies**
+   ```bash
+   cd blog_admin
+   pip install -r requirements.txt
+   cd ..
+   ```
+
+3. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
+
+## 🎯 Running the Application
+
+### Option 1: Flask Admin System (Recommended)
+This runs both the main site and the admin panel through Flask:
+
+```bash
+npm run admin
+```
+
+- **Main Site**: http://localhost:5000
+- **Admin Panel**: http://localhost:5000/admin/login
+- **Default Password**: `mushroom123`
+
+### Option 2: Static Site Only
+For development without the admin panel:
+
+```bash
+npm run dev
+```
+
+- **Site**: http://localhost:3000
+
+## 📝 Blog Management
+
+### Using the Admin Panel (Recommended)
+1. Start the Flask server: `npm run admin`
+2. Visit http://localhost:5000/admin/login
+3. Login with password: `mushroom123`
+4. Create, edit, and manage blog posts through the web interface
+
+### Features
+- ✅ WYSIWYG editor for blog content
+- ✅ Image upload and management
+- ✅ Category organization (AI, Automation, Business, News, Tutorials)
+- ✅ SEO-friendly URLs
+- ✅ Responsive design
+- ✅ Secure admin authentication
+
+### Legacy Scripts (Still Available)
+- `npm run new-post` - Create new markdown posts
+- `npm run convert-post` - Convert markdown to HTML
+- `npm run build:blog` - Build static blog files
+
+## 🏗️ Project Structure
+
 ```
 TMAsite/
-├── index.html          # Main HTML structure
-├── styles.css          # All styling and animations
-├── script.js           # JavaScript functionality
-└── README.md           # This file
+├── blog_admin/           # Flask admin system
+│   ├── src/
+│   │   ├── routes/      # API endpoints
+│   │   ├── models/      # Database models
+│   │   ├── templates/   # Admin templates
+│   │   └── static/      # Admin assets
+│   └── requirements.txt
+├── images/              # Site images
+├── posts/              # Blog post files
+├── scripts/            # Build scripts
+├── index.html          # Main site
+├── blog.html           # Blog listing
+├── post.html           # Individual post template
+├── posts.json          # Blog data
+├── styles.css          # Main styles
+├── blog-styles.css     # Blog styles
+└── run_admin.py        # Admin server runner
 ```
 
-## 🎨 Customization
+## 🔧 Configuration
 
-### Colors
-The website uses CSS custom properties (variables) for easy color customization:
-
-```css
-:root {
-    --primary-purple: #8B5CF6;
-    --secondary-purple: #A855F7;
-    --accent-green: #10B981;
-    --accent-blue: #3B82F6;
-    --accent-orange: #F59E0B;
-    /* ... more colors */
-}
+### Admin Password
+Set the environment variable to change the admin password:
+```bash
+export BLOG_ADMIN_PASSWORD="your-secure-password"
 ```
 
-### Content Updates
-- **Text Content**: Edit the HTML file to update copy and messaging
-- **Images**: Replace placeholder images with actual photos
-- **Videos**: Add video files and update video placeholders
-- **Contact Form**: Connect to your preferred form handling service
+### Categories
+Edit `blog_admin/src/routes/blog_admin.py` around line 150 to modify categories.
 
-### Animations
-All animations are CSS-based for performance. Key animations include:
-- Floating mushroom elements
-- Growing mycelium strands
-- Parallax scrolling effects
-- Hover transformations
-- Smooth page transitions
+## 🚀 Deployment
 
-## 📱 Responsive Design
+### Static Site Deployment
+The main site can be deployed as static files to any hosting service:
+- Vercel
+- Netlify
+- GitHub Pages
+- Traditional web hosting
 
-The website is fully responsive with breakpoints at:
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: Below 768px
+### Admin System Deployment
+For the admin system, you'll need a Python hosting service:
+- Heroku
+- PythonAnywhere
+- DigitalOcean App Platform
+- AWS/GCP with Python support
 
-## ♿ Accessibility
+## 🛠️ Development
 
-- Semantic HTML structure
-- Proper heading hierarchy
-- Alt text for images
-- Keyboard navigation support
-- Focus indicators
-- Screen reader friendly
-- High contrast ratios
+### Adding New Features
+1. **Frontend**: Edit HTML/CSS/JS files in the root
+2. **Admin**: Edit Flask files in `blog_admin/src/`
+3. **Blog**: Use the admin panel or edit `posts.json` directly
 
-## 🔧 Technical Details
+### Database
+The system uses SQLite for user management and JSON files for blog content, making it simple to deploy and maintain.
 
-### Technologies Used
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with Grid, Flexbox, and animations
-- **Vanilla JavaScript**: No frameworks, lightweight and fast
-- **Font Awesome**: Icons
-- **Google Fonts**: Inter and Space Grotesk typography
+## 📞 Support
 
-### Performance Optimizations
-- CSS animations for smooth performance
-- Optimized images (placeholder URLs ready for real images)
-- Minimal JavaScript footprint
-- Efficient DOM manipulation
-- RequestAnimationFrame for smooth scrolling
-
-## 🎯 Content Placeholders
-
-The website includes placeholders for:
-- **Videos**: Client testimonials and explainer videos
-- **Images**: Founder photo, client photos, and additional visuals
-- **Social Links**: Facebook, YouTube, TikTok profiles
-- **Contact Information**: Phone numbers and addresses
-
-## 🌟 Special Features
-
-### Magic Mushroom Button
-A floating interactive element that provides:
-- Random AI tips and facts
-- Quick quizzes
-- Success stories
-- Mushroom wisdom
-- Tech tips
-
-### Animated Elements
-- Growing mushroom in hero section
-- Floating spores
-- Mycelium network animation
-- Mushroom-to-lightbulb transformation
-- Timeline animations
-
-## 📞 Contact & Support
-
-For questions about the website or customization needs, contact The Mushroom Agency.
-
-## 📄 License
-
-This website is created for The Mushroom Agency. All rights reserved.
+For questions or issues, contact The Mushroom Agency team.
 
 ---
 
-**Built with ❤️ for small-town businesses and AI enthusiasts** 
+**Built with ❤️ by The Mushroom Agency** 
