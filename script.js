@@ -522,13 +522,13 @@ function validateForm(event) {
         isValid = false;
     }
     
-    // Validate phone
-    const phoneRegex = /^[\d\-\+\(\)\s]{10,20}$/;
+    // Validate phone - must be exactly 10 digits
+    const phoneRegex = /^[0-9]{10}$/;
     if (!phone.value.trim()) {
         showError('phone', 'Phone number is required');
         isValid = false;
     } else if (!phoneRegex.test(phone.value.trim())) {
-        showError('phone', 'Please enter a valid phone number');
+        showError('phone', 'Please enter exactly 10 digits (e.g., 5551234567)');
         isValid = false;
     }
     
@@ -646,6 +646,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.borderColor = '';
                 this.style.boxShadow = '';
             }
+            
+            // Special handling for phone field - strip non-digits
+            if (this.id === 'phone') {
+                this.value = this.value.replace(/\D/g, '').substring(0, 10);
+            }
         });
     });
 });
@@ -667,9 +672,9 @@ function validateField(field) {
             }
             break;
         case 'phone':
-            const phoneRegex = /^[\d\-\+\(\)\s]{10,20}$/;
+            const phoneRegex = /^[0-9]{10}$/;
             if (value && !phoneRegex.test(value)) {
-                showError('phone', 'Please enter a valid phone number');
+                showError('phone', 'Please enter exactly 10 digits (e.g., 5551234567)');
             }
             break;
         case 'message':
