@@ -487,7 +487,8 @@ function validateForm(event) {
     
     // Get form elements
     const form = document.getElementById('contactForm');
-    const name = document.getElementById('name');
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
     const email = document.getElementById('email');
     const phone = document.getElementById('phone');
     const message = document.getElementById('message');
@@ -500,15 +501,27 @@ function validateForm(event) {
     
     let isValid = true;
     
-    // Validate name
-    if (!name.value.trim()) {
-        showError('name', 'Name is required');
+    // Validate first name
+    if (!firstName.value.trim()) {
+        showError('firstName', 'First name is required');
         isValid = false;
-    } else if (name.value.trim().length < 2) {
-        showError('name', 'Name must be at least 2 characters');
+    } else if (firstName.value.trim().length < 2) {
+        showError('firstName', 'First name must be at least 2 characters');
         isValid = false;
-    } else if (name.value.trim().length > 50) {
-        showError('name', 'Name must be less than 50 characters');
+    } else if (firstName.value.trim().length > 25) {
+        showError('firstName', 'First name must be less than 25 characters');
+        isValid = false;
+    }
+    
+    // Validate last name
+    if (!lastName.value.trim()) {
+        showError('lastName', 'Last name is required');
+        isValid = false;
+    } else if (lastName.value.trim().length < 2) {
+        showError('lastName', 'Last name must be at least 2 characters');
+        isValid = false;
+    } else if (lastName.value.trim().length > 25) {
+        showError('lastName', 'Last name must be less than 25 characters');
         isValid = false;
     }
     
@@ -660,9 +673,14 @@ function validateField(field) {
     const fieldId = field.id;
     
     switch (fieldId) {
-        case 'name':
+        case 'firstName':
             if (value && value.length < 2) {
-                showError('name', 'Name must be at least 2 characters');
+                showError('firstName', 'First name must be at least 2 characters');
+            }
+            break;
+        case 'lastName':
+            if (value && value.length < 2) {
+                showError('lastName', 'Last name must be at least 2 characters');
             }
             break;
         case 'email':
