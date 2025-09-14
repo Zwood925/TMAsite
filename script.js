@@ -703,6 +703,17 @@ function validateField(field) {
     }
 }
 
+// Scroll to contact function
+function scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        contactSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
 // Accessibility improvements
 document.addEventListener('keydown', function(e) {
     // Close modal with Escape key
