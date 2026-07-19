@@ -5,8 +5,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/ChatGPTImageJul24202508_27_40PM.png" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Mushroom Agency | Custom Tech & AI</title>
   </head>
   <body>
@@ -199,7 +198,7 @@
     </main>
 
     <!-- MODAL OVERLAY -->
-    <div id="project-modal" class="modal-overlay hidden">
+    <div id="project-modal" class="modal-overlay">
       <div class="modal-glass">
         <button id="close-modal" class="close-btn">&times;</button>
         <div class="modal-visual">
@@ -815,8 +814,8 @@
     
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
-    const modalImg = document.getElementById('modal-img') as HTMLImageElement;
-    const modalLink = document.getElementById('modal-link') as HTMLAnchorElement;
+    const modalImg = document.getElementById('modal-img');
+    const modalLink = document.getElementById('modal-link');
 
     cards.forEach(card => {
       card.addEventListener('click', () => {
@@ -848,16 +847,16 @@
     });
 
     // --- MAKE.COM WEBHOOK FORM LOGIC ---
-    const form = document.getElementById('tma-contact-form') as HTMLFormElement;
+    const form = document.getElementById('tma-contact-form');
     const formStatus = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
-    const timestampField = document.getElementById('timestamp') as HTMLInputElement;
+    const timestampField = document.getElementById('timestamp');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // 1. Check Honeypot (Bot Protection)
-      const honeypot = (form.elements.namedItem('website') as HTMLInputElement).value;
+      const honeypot = form.elements.namedItem('website').value;
       if (honeypot) {
         console.log("Bot detected. Silently failing.");
         return; 
@@ -873,11 +872,11 @@
 
       // 4. Gather Data
       const formData = {
-        firstName: (form.elements.namedItem('firstName') as HTMLInputElement).value,
-        lastName: (form.elements.namedItem('lastName') as HTMLInputElement).value,
-        email: (form.elements.namedItem('email') as HTMLInputElement).value,
-        phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
-        message: (form.elements.namedItem('message') as HTMLInputElement).value,
+        firstName: form.elements.namedItem('firstName').value,
+        lastName: form.elements.namedItem('lastName').value,
+        email: form.elements.namedItem('email').value,
+        phone: form.elements.namedItem('phone').value,
+        message: form.elements.namedItem('message').value,
         timestamp: timestampField.value
       };
 
