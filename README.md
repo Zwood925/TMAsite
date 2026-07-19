@@ -1,145 +1,43 @@
-# The Mushroom Agency Website
+# Astro Starter Kit: Minimal
 
-AI Made Simple for Small Towns
-
-## 🍄 About
-
-This is the official website for The Mushroom Agency, featuring a modern blog system with a secure Flask-based admin panel.
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Node.js 14+
-- npm
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd TMAsite
-   ```
-
-2. **Install Python dependencies**
-   ```bash
-   cd blog_admin
-   pip install -r requirements.txt
-   cd ..
-   ```
-
-3. **Install Node.js dependencies**
-   ```bash
-   npm install
-   ```
-
-## 🎯 Running the Application
-
-### Option 1: Flask Admin System (Recommended)
-This runs both the main site and the admin panel through Flask:
-
-```bash
-npm run admin
+```sh
+npm create astro@latest -- --template minimal
 ```
 
-- **Main Site**: http://localhost:5000
-- **Admin Panel**: http://localhost:5000/admin/login
-- **Default Password**: `mushroom123`
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-### Option 2: Static Site Only
-For development without the admin panel:
+## 🚀 Project Structure
 
-```bash
-npm run dev
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-- **Site**: http://localhost:3000
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## 📝 Blog Management
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-### Using the Admin Panel (Recommended)
-1. Start the Flask server: `npm run admin`
-2. Visit http://localhost:5000/admin/login
-3. Login with password: `mushroom123`
-4. Create, edit, and manage blog posts through the web interface
+Any static assets, like images, can be placed in the `public/` directory.
 
-### Features
-- ✅ WYSIWYG editor for blog content
-- ✅ Image upload and management
-- ✅ Category organization (AI, Automation, Business, News, Tutorials)
-- ✅ SEO-friendly URLs
-- ✅ Responsive design
-- ✅ Secure admin authentication
+## 🧞 Commands
 
-### Legacy Scripts (Still Available)
-- `npm run new-post` - Create new markdown posts
-- `npm run convert-post` - Convert markdown to HTML
-- `npm run build:blog` - Build static blog files
+All commands are run from the root of the project, from a terminal:
 
-## 🏗️ Project Structure
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-```
-TMAsite/
-├── blog_admin/           # Flask admin system
-│   ├── src/
-│   │   ├── routes/      # API endpoints
-│   │   ├── models/      # Database models
-│   │   ├── templates/   # Admin templates
-│   │   └── static/      # Admin assets
-│   └── requirements.txt
-├── images/              # Site images
-├── posts/              # Blog post files
-├── scripts/            # Build scripts
-├── index.html          # Main site
-├── blog.html           # Blog listing
-├── post.html           # Individual post template
-├── posts.json          # Blog data
-├── styles.css          # Main styles
-├── blog-styles.css     # Blog styles
-└── run_admin.py        # Admin server runner
-```
+## 👀 Want to learn more?
 
-## 🔧 Configuration
-
-### Admin Password
-Set the environment variable to change the admin password:
-```bash
-export BLOG_ADMIN_PASSWORD="your-secure-password"
-```
-
-### Categories
-Edit `blog_admin/src/routes/blog_admin.py` around line 150 to modify categories.
-
-## 🚀 Deployment
-
-### Static Site Deployment
-The main site can be deployed as static files to any hosting service:
-- Vercel
-- Netlify
-- GitHub Pages
-- Traditional web hosting
-
-### Admin System Deployment
-For the admin system, you'll need a Python hosting service:
-- Heroku
-- PythonAnywhere
-- DigitalOcean App Platform
-- AWS/GCP with Python support
-
-## 🛠️ Development
-
-### Adding New Features
-1. **Frontend**: Edit HTML/CSS/JS files in the root
-2. **Admin**: Edit Flask files in `blog_admin/src/`
-3. **Blog**: Use the admin panel or edit `posts.json` directly
-
-### Database
-The system uses SQLite for user management and JSON files for blog content, making it simple to deploy and maintain.
-
-## 📞 Support
-
-For questions or issues, contact The Mushroom Agency team.
-
----
-
-**Built with ❤️ by The Mushroom Agency** 
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

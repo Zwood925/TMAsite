@@ -1,29 +1,17 @@
 {
-  "name": "mushroom-agency-website",
-  "version": "1.0.0",
-  "description": "The Mushroom Agency - AI Made Simple for Small Towns",
-  "main": "index.html",
+  "name": "tma-v2",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "npx serve . -p 3000",
-    "start": "npx serve . -p 3000",
-    "admin": "python run_admin.py",
-    "build": "npm run build:blog && echo 'Build completed - static site ready for deployment'",
-    "preview": "npx serve . -p 3000",
-    "build:blog": "node scripts/build-blog.mjs",
-    "new-post": "node scripts/create-post.js",
-    "convert-post": "node scripts/md-to-blog.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [
-    "ai",
-    "automation",
-    "small-business",
-    "mushroom-agency"
-  ],
-  "author": "Zach - The Mushroom Agency",
-  "license": "MIT",
   "dependencies": {
-    "gray-matter": "^4.0.3",
-    "marked": "^12.0.2"
-  },
-  "type": "module"
+    "astro": "^7.1.1"
+  }
 }
