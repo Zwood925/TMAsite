@@ -28,8 +28,13 @@ export const POST: APIRoute = async ({ request }) => {
         'Authorization': `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
+        // If your domain is verified in Resend, use it here (e.g., 'system@themushroom.agency')
+        // Otherwise, keep it as 'onboarding@resend.dev' until verified.
         from: 'The Mushroom Agency <onboarding@resend.dev>',
-        to: ['zwood925@gmail.com'],
+        
+        // Your actual receiving email
+        to: ['zwood@themushroom.agency'], 
+        
         subject: `🍄 New Transmission: ${firstName} ${lastName}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333;">
@@ -49,9 +54,14 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ success: true }), { status: 200 });
     } else {
       const errorData = await resendResponse.json();
-      return new Response(JSON.stringify({ error: errorData }), { status: 400 });
+      console.error("Resend API Error Details:", errorData); // This logs to your Vercel dashboard
+      
+      // Extract the string message so the UI shows the real error instead of [object Object]
+      const errorMessage = errorData.message || errorData.name || 'Unknown Resend Error';
+      return new Response(JSON.stringify({ error: errorMessage }), { status: 400 });
     }
   } catch (error) {
+    console.error("Server Error:", error);
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
   }
 };
