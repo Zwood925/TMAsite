@@ -1,0 +1,151 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description = "The Mushroom Agency is a bespoke product studio specializing in custom software engineering, AI automation, and high-performance web applications built for scale.",
+  image = "/ChatGPTImageJul24202508_27_40PM.png" 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/ChatGPTImageJul24202508_27_40PM.png" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="The Mushroom Agency, custom software development, AI automation, local LLMs, web applications, tech consulting, Astro developer" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+  </head>
+  <body>
+    <!-- Background Magic -->
+    <div class="glow-orb"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Page Content -->
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Global Resets */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #050505; 
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* The Trippy Breathing Orb */
+  .glow-orb {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    z-index: 0; 
+    width: 80vw;
+    height: 80vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(236, 72, 153, 0.2) 40%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    animation: breathe 8s infinite alternate ease-in-out;
+  }
+
+  /* Noise Texture Overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  @keyframes breathe {
+    0% { transform: translateX(-50%) scale(1); filter: hue-rotate(0deg); }
+    100% { transform: translateX(-50%) scale(1.1); filter: hue-rotate(45deg); }
+  }
+
+  /* Reusable Global Classes */
+  .highlight {
+    color: #f472b6; 
+    text-shadow: 0 0 15px rgba(244, 114, 182, 0.4);
+  }
+
+  .glass-box {
+    background: rgba(20, 20, 25, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  /* Global Buttons */
+  .btn {
+    padding: 0.85rem 2.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .primary-btn {
+    background: linear-gradient(45deg, #a855f7, #ec4899);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+    border: none;
+  }
+
+  .primary-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.5);
+  }
+
+  .secondary-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #c084fc;
+    color: #c084fc;
+  }
+</style>

@@ -1,0 +1,312 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Contact & Booking | The Mushroom Agency">
+  <Navbar />
+
+  <main class="container">
+    <section class="contact-section">
+      <div class="contact-card glass-box">
+        <div class="contact-split">
+          
+          <!-- LEFT SIDE: VISUAL & CALENDLY -->
+          <div class="contact-visual">
+            <video src="/tma_pulsing.mp4" autoplay loop muted playsinline class="weird-bounce-logo"></video>
+            <h2>Initiate <span class="highlight">Transmission</span></h2>
+            <p>Whether you need a custom AI agent, a full-stack web app, or an enterprise internal tool, let's map out your architecture.</p>
+            
+            <div class="calendly-box">
+              <h3>Prefer a direct conversation?</h3>
+              <p>Book a discovery call directly on my calendar.</p>
+              <a href="https://calendly.com/zwood925/tma-discovery-call" target="_blank" rel="noopener noreferrer" class="btn secondary-btn">Book Discovery Call</a>
+            </div>
+            
+            <img src="/ChatGPTImageJul24202508_24_12PM.png" alt="Psychedelic Mushroom" class="contact-mushroom" />
+          </div>
+          
+          <!-- RIGHT SIDE: RESEND FORM -->
+          <div class="contact-form-container">
+            <form id="tma-contact-form" class="custom-form">
+              <!-- Honeypot for bot protection -->
+              <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+              
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" required minlength="2" placeholder="John" />
+                </div>
+                <div class="input-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" required minlength="2" placeholder="Doe" />
+                </div>
+              </div>
+              
+              <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com" />
+              </div>
+
+              <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit number" title="Please enter a 10-digit phone number" />
+              </div>
+              
+              <div class="input-group">
+                <label for="message">What are we building?</label>
+                <textarea id="message" name="message" rows="4" required minlength="10" placeholder="Tell us about your project requirements, timeline, and goals..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn primary-btn submit-btn" id="submit-btn">Send Transmission</button>
+            </form>
+            
+            <div id="form-status-success" class="form-status success hidden">
+              <h3>Transmission Received 🍄</h3>
+              <p>Your message has been encrypted and routed via Resend. We'll be in touch shortly.</p>
+            </div>
+
+            <div id="form-status-error" class="form-status error hidden">
+              <h3>Transmission Error</h3>
+              <p id="error-message">Something went wrong sending your message. Please try again or book via Calendly.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem 2rem;
+  }
+
+  .contact-card {
+    padding: 4rem 3rem;
+  }
+
+  .contact-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 850px) {
+    .contact-split {
+      grid-template-columns: 1fr 1.1fr;
+      text-align: left;
+    }
+  }
+
+  .contact-visual {
+    text-align: center;
+  }
+
+  .weird-bounce-logo {
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    animation: weirdBounce 4s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+
+  @keyframes weirdBounce {
+    0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+    50% { transform: translateY(-20px) scale(1.05) rotate(5deg); box-shadow: 0 20px 40px rgba(168, 85, 247, 0.4); }
+  }
+
+  .contact-visual h2 {
+    font-size: 2.25rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  .contact-visual p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .calendly-box {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .calendly-box h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .calendly-box p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-mushroom {
+    width: 100px;
+    margin-top: 2.5rem;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.4));
+  }
+
+  /* Form Styling */
+  .custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+  }
+
+  .input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .input-group input, .input-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #a855f7;
+    background: rgba(168, 85, 247, 0.05);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+  }
+
+  .submit-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .form-status {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+  }
+
+  .form-status.success {
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid #a855f7;
+  }
+
+  .form-status.success h3 {
+    color: #f472b6;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-status.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+  }
+
+  .form-status.error h3 {
+    color: #f87171;
+    margin-bottom: 0.5rem;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('tma-contact-form') as HTMLFormElement;
+    const successStatus = document.getElementById('form-status-success');
+    const errorStatus = document.getElementById('form-status-error');
+    const errorMessage = document.getElementById('error-message');
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // 1. Check Honeypot
+        const honeypot = (form.elements.namedItem('website') as HTMLInputElement).value;
+        if (honeypot) return;
+
+        // 2. Button Loading State
+        submitBtn.textContent = "Transmitting...";
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+
+        if (errorStatus) errorStatus.classList.add('hidden');
+
+        // 3. Collect Form Data
+        const formData = {
+          firstName: (form.elements.namedItem('firstName') as HTMLInputElement).value,
+          lastName: (form.elements.namedItem('lastName') as HTMLInputElement).value,
+          email: (form.elements.namedItem('email') as HTMLInputElement).value,
+          phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+          message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+          website: honeypot
+        };
+
+        try {
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            form.style.display = 'none';
+            if (successStatus) successStatus.classList.remove('hidden');
+          } else {
+            throw new Error(result.error || 'Failed to transmit message.');
+          }
+        } catch (err: any) {
+          submitBtn.textContent = "Send Transmission";
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "1";
+
+          if (errorStatus && errorMessage) {
+            errorMessage.textContent = err.message || "Network error. Please try again.";
+            errorStatus.classList.remove('hidden');
+          }
+        }
+      });
+    }
+  });
+</script>

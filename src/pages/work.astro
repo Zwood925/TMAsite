@@ -1,0 +1,551 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Work & Case Studies | The Mushroom Agency">
+  <Navbar />
+
+  <main class="container">
+    <header class="work-header">
+      <h1 class="section-title">Production <span class="highlight">Receipts</span></h1>
+      <p class="subtitle-desc">
+        From App Store-approved mobile platforms to industrial field software, we ship rock-solid, production-grade applications built for scale.
+      </p>
+    </header>
+
+    <!-- CASE STUDIES & PROJECTS GRID -->
+    <section class="project-grid">
+      <!-- Project 1: HappyMe+ -->
+      <div 
+        class="project-card glass-box"
+        data-title="HappyMe+ (iOS App & Web Platform)"
+        data-desc="Fully functional, Apple App Store-approved social application built for positive daily tracking and group pods. Engineered for high performance, smooth mobile interactions, and real-time community engagement."
+        data-images='["/happyme_screenshot.png"]'
+        data-link="#"
+      >
+        <div class="card-badge">Apple App Store Approved</div>
+        <div class="card-image-container">
+          <img src="/happyme_screenshot.png" alt="HappyMe+ App Preview" class="card-preview-img portrait" />
+        </div>
+        <div class="project-content">
+          <h3>HappyMe+ Platform</h3>
+          <p>Native-feel consumer app meeting strict Apple App Store compliance & security standards.</p>
+          <div class="tech-stack">
+            <span>iOS / Mobile</span>
+            <span>Next.js</span>
+            <span>React</span>
+            <span>Tailwind</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Copeland Electric JSA -->
+      <div 
+        class="project-card glass-box"
+        data-title="Copeland Electric JSA Field Application"
+        data-desc="Custom-engineered web application actively deployed for industrial electrical crews in the field. Streamlines 6-step Job Safety Analysis workflows, digital signatures, hazard logs, and automated PDF export generation for high-stakes site compliance."
+        data-images='["/jsa_screenshot1.png", "/jsa_screenshot2.png", "/jsa_screenshot3.png", "/jsa_screenshot4.png", "/jsa_screenshot5.png"]'
+        data-link="#"
+      >
+        <div class="card-badge enterprise">Field Deployed Software</div>
+        <div class="card-image-container">
+          <img src="/jsa_screenshot1.png" alt="Copeland Electric JSA Preview" class="card-preview-img landscape" />
+        </div>
+        <div class="project-content">
+          <h3>Copeland Electric JSA App</h3>
+          <p>Industrial-grade field app used daily by crews for job safety logging & instant PDF generation.</p>
+          <div class="tech-stack">
+            <span>Industrial Tech</span>
+            <span>Web App</span>
+            <span>PDF Engine</span>
+            <span>Digital Signatures</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: AI Discord Agents -->
+      <div 
+        class="project-card glass-box"
+        data-title="Autonomous AI Discord Agents"
+        data-desc="Custom Python AI agents integrated directly into community & workflow platforms. Features contextual memory, dynamic database querying, LLM orchestration, and custom command handling."
+        data-images='["/dbot_py_screenshot.png"]'
+        data-link="#"
+      >
+        <div class="card-badge ai">AI Automation</div>
+        <div class="card-image-container">
+          <img src="/dbot_py_screenshot.png" alt="Discord AI Agents Preview" class="card-preview-img landscape" />
+        </div>
+        <div class="project-content">
+          <h3>Autonomous AI Agents</h3>
+          <p>Python-powered Discord & Telegram AI bots with custom LLM integrations and database memory.</p>
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>LLMs / OpenAI</span>
+            <span>Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Locked Vault CTA Card -->
+      <div class="project-card glass-box vault-card">
+        <div class="vault-content">
+          <div class="vault-icon">🔒</div>
+          <h3>Need More Examples?</h3>
+          <p>We build custom internal tools, local AI solutions, and high-converting landing pages under NDA.</p>
+          <a href="/contact" class="btn primary-btn">Unlock The Vault</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL OVERLAY -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-glass">
+      <button id="close-modal" class="close-btn">&times;</button>
+      <div class="modal-visual">
+        <button id="prev-img" class="carousel-nav hidden">&#10094;</button>
+        <img id="modal-img" src="" alt="Project Visual" />
+        <button id="next-img" class="carousel-nav hidden">&#10095;</button>
+        
+        <div id="carousel-indicators" class="carousel-indicators"></div>
+      </div>
+      <div class="modal-info">
+        <h2 id="modal-title">Project Title</h2>
+        <p id="modal-desc">Detailed project description goes here.</p>
+        <a id="modal-link" href="#" target="_blank" class="btn primary-btn hidden">Launch Live Demo</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem 2rem;
+  }
+
+  .work-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle-desc {
+    color: #94a3b8;
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* Grid Layout */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 850px) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .project-card {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 15px 35px rgba(168, 85, 247, 0.2);
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(236, 72, 153, 0.15);
+    color: #f472b6;
+    border: 1px solid rgba(236, 72, 153, 0.3);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 2;
+  }
+
+  .card-badge.enterprise {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .card-badge.ai {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+
+  .card-image-container {
+    width: 100%;
+    height: 220px;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .card-preview-img {
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .card-preview-img.portrait {
+    max-height: 200px;
+  }
+
+  .project-card:hover .card-preview-img {
+    transform: scale(1.05);
+  }
+
+  .project-content h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-content p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-stack span {
+    background: rgba(168, 85, 247, 0.1);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* Vault CTA Card */
+  .vault-card {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(20, 20, 25, 0.4) 100%);
+    border: 1px dashed rgba(168, 85, 247, 0.4);
+    min-height: 380px;
+  }
+
+  .vault-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .vault-content h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .vault-content p {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    max-width: 320px;
+  }
+
+  /* Modal System */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-glass {
+    background: rgba(20, 20, 25, 0.95);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(168, 85, 247, 0.2);
+    position: relative;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+
+  .modal-overlay.active .modal-glass {
+    transform: translateY(0);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .close-btn:hover {
+    color: #f472b6;
+  }
+
+  .modal-visual {
+    padding: 2.5rem; 
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(20, 20, 25, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 450px;
+  }
+
+  .modal-visual img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Carousel Styles */
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    z-index: 5;
+  }
+
+  .carousel-nav:hover {
+    background: rgba(168, 85, 247, 0.6);
+    border-color: #f472b6;
+  }
+
+  #prev-img { left: 20px; }
+  #next-img { right: 20px; }
+
+  .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .dot.active {
+    background: #f472b6;
+    transform: scale(1.2);
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .modal-info {
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .modal-info h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .modal-info p {
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.project-card:not(.vault-card)');
+    const modal = document.getElementById('project-modal');
+    const closeBtn = document.getElementById('close-modal');
+    
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+    const modalLink = document.getElementById('modal-link') as HTMLAnchorElement;
+    
+    const prevBtn = document.getElementById('prev-img');
+    const nextBtn = document.getElementById('next-img');
+    const indicatorsContainer = document.getElementById('carousel-indicators');
+
+    let currentImages: string[] = [];
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      if (currentImages.length > 0 && modalImg) {
+        modalImg.src = currentImages[currentIndex];
+      }
+      
+      if (indicatorsContainer) {
+        const dots = indicatorsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      if (prevBtn && nextBtn && indicatorsContainer) {
+        if (currentImages.length > 1) {
+          prevBtn.classList.remove('hidden');
+          nextBtn.classList.remove('hidden');
+          indicatorsContainer.classList.remove('hidden');
+        } else {
+          prevBtn.classList.add('hidden');
+          nextBtn.classList.add('hidden');
+          indicatorsContainer.classList.add('hidden');
+        }
+      }
+    };
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (modalTitle && modalDesc && modalImg && modalLink && modal) {
+          modalTitle.textContent = card.getAttribute('data-title') || '';
+          modalDesc.textContent = card.getAttribute('data-desc') || '';
+          
+          const imagesRaw = card.getAttribute('data-images');
+          currentImages = imagesRaw ? JSON.parse(imagesRaw) : [];
+          currentIndex = 0;
+
+          const link = card.getAttribute('data-link');
+          if (link && link !== '#') {
+            modalLink.href = link;
+            modalLink.style.display = 'inline-block';
+          } else {
+            modalLink.style.display = 'none';
+          }
+          
+          if (indicatorsContainer) {
+            indicatorsContainer.innerHTML = '';
+            if (currentImages.length > 1) {
+              currentImages.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (idx === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                  currentIndex = idx;
+                  updateCarousel();
+                });
+                indicatorsContainer.appendChild(dot);
+              });
+            }
+          }
+
+          updateCarousel();
+          
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; 
+        }
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentImages.length - 1;
+        updateCarousel();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex < currentImages.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+      });
+    }
+
+    const closeModal = () => {
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; 
+      }
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+  });
+</script>

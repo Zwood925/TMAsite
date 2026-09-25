@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Services & Capabilities | The Mushroom Agency">
+  <Navbar />
+
+  <main class="container">
+    <header class="services-header">
+      <h1 class="section-title">The One-Stop <span class="highlight">Software Shop</span></h1>
+      <p class="subtitle-desc">
+        Traditional dev shops charge legacy enterprise rates for snail-pace delivery. We leverage modern AI orchestration and custom engineering to ship production-ready software in days, not months.
+      </p>
+    </header>
+
+    <!-- CORE CAPABILITIES GRID -->
+    <section class="core-services">
+      
+      <!-- Precision Landing Pages & Launchpads -->
+      <div class="service-block glass-box">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+        </div>
+        <div class="service-text">
+          <h3>High-Converting Launchpads & Landing Pages</h3>
+          <p>Need to test a new product, launch a campaign, or sell a passion project? We design and build ultra-fast, high-converting landing pages built on modern frameworks. No bloated page builders—just clean code optimized for maximum conversion and instant load times.</p>
+        </div>
+      </div>
+
+      <!-- Voice & Audio -->
+      <div class="service-block glass-box">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <div class="service-text">
+          <h3>Autonomous Voice Agents & Audio</h3>
+          <p>Stop missing leads. We build custom AI voice agents that answer your company's phone calls, book appointments, and handle customer service 24/7. Leveraging our dedicated local rendering hardware, we also offer high-fidelity Text-to-Speech (TTS) and voice cloning.</p>
+        </div>
+      </div>
+
+      <!-- Private LLMs -->
+      <div class="service-block glass-box">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+        </div>
+        <div class="service-text">
+          <h3>Private LLMs & Corporate Chatbots</h3>
+          <p>Secure your proprietary data. We train and deploy custom Large Language Models (LLMs) exclusively on your company's documents and workflows. Give your team a powerful internal AI assistant without ever leaking data to public models.</p>
+        </div>
+      </div>
+
+      <!-- Web & E-Commerce -->
+      <div class="service-block glass-box">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <div class="service-text">
+          <h3>Bespoke Web Platforms & E-Commerce</h3>
+          <p>Whether you need a sleek storefront for a niche consumer product or a complex, multi-tenant industrial field application, we engineer full-stack web software designed to scale effortlessly and handle real-world operations.</p>
+        </div>
+      </div>
+
+      <!-- Media & Video -->
+      <div class="service-block glass-box">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 11 5 3-5 3v-6Z"/></svg>
+        </div>
+        <div class="service-text">
+          <h3>AI Video & Workflow Automations</h3>
+          <p>Automate your content pipeline and repetitive business tasks. We build integrations connecting your stack (Stripe, Twilio, OpenAI, Discord) to handle video generation, automated outreach, and instant operational reporting.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- THE GUARANTEE -->
+    <section class="guarantee-section glass-box">
+      <div class="guarantee-content">
+        <h2>The "Own Your Stack" Guarantee</h2>
+        <p>Stop paying perpetual monthly fees for rented software and rigid SaaS templates. We engineer self-hosted, custom solutions where you maintain 100% ownership, full root access, and total source code control.</p>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="services-cta text-center">
+      <h2>Ready to build your next tool?</h2>
+      <a href="/contact" class="btn primary-btn mt-4">Initiate Contact</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem 2rem;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle-desc {
+    color: #94a3b8;
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Core Services */
+  .core-services {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-block {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    gap: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .service-block {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .service-block:hover {
+    border-color: rgba(236, 72, 153, 0.4);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+    transform: translateX(5px);
+  }
+
+  .service-icon {
+    flex-shrink: 0;
+    color: #c084fc;
+    background: rgba(168, 85, 247, 0.1);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+  }
+
+  .service-text h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .service-text p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /* Guarantee Section */
+  .guarantee-section {
+    padding: 3rem;
+    text-align: center;
+    border-color: rgba(59, 130, 246, 0.3);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(20, 20, 25, 0.4) 100%);
+    margin-bottom: 4rem;
+  }
+
+  .guarantee-content h2 {
+    font-size: 2rem;
+    color: #60a5fa;
+    margin-bottom: 1rem;
+  }
+
+  .guarantee-content p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .services-cta {
+    padding: 2rem 0;
+  }
+
+  .services-cta h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .mt-4 {
+    margin-top: 1rem;
+  }
+</style>

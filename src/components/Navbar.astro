@@ -1,0 +1,53 @@
+---
+---
+
+<nav class="navbar">
+  <div class="logo">🍄 TMA</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/work">Work</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+    background: rgba(5, 5, 5, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: #f472b6;
+  }
+</style>
