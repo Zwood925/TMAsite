@@ -43,7 +43,6 @@ import Navbar from '../components/Navbar.astro';
     align-items: center;
   }
 
-  /* Hero Section */
   .hero {
     padding: 4rem 3rem;
     width: 100%;
@@ -113,5 +112,23 @@ import Navbar from '../components/Navbar.astro';
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  #video-modal .relative {
+    width: 100%;
+    max-width: min(100%, 1152px);
+    margin: 0 auto;
+    padding: 0.5rem;
+    max-height: 90vh;
+  }
+
+  #video-modal video {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+    object-fit: contain !important;
+    object-position: center;
+    background: #000000;
   }
 </style>
